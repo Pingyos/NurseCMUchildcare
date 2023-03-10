@@ -13,7 +13,7 @@
                 <a href="index.php" class="nav-item nav-link active">หน้าหลัก</a>
                 <a href="about.php" class="nav-item nav-link">เกี่ยวกับเรา</a>
                 <a href="class.php" class="nav-item nav-link">ชั้นเรียน</a>
-                <a href="team.phpl" class="nav-item nav-link">คุณครู</a>
+                <a href="team.php" class="nav-item nav-link">คุณครู</a>
                 <a href="gallery.php" class="nav-item nav-link">รูปภาพกิจกรรม</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">บล็อก</a>
@@ -22,7 +22,7 @@
                         <a href="single.php" class="dropdown-item">E-book</a>
                     </div>
                 </div>
-                <a href="contact.html" class="nav-item nav-link">ติดต่อเรา</a>
+                <a href="contact.php" class="nav-item nav-link">ติดต่อเรา</a>
             </div>
             <a href="reg_childcare.php" class="btn btn-primary px-4">เข้าร่วมชั้นเรียน</a>
         </div>

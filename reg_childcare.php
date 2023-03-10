@@ -14,22 +14,22 @@
                             <h1 class="text-white m-0">แบบฟอร์มการจองสิทธิ์</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-primary p-12">
-                            <form>
+                            <form method="POST" role="form">
                                 <h5>แบบฟอร์มสำหรับผู้ปกครอง</h5>
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="ชื่อผู้ขอจองสิทธิ์" required="required" />
+                                            <input type="text" name="name_parent" class="form-control border-0 p-4" placeholder="ชื่อผู้ขอจองสิทธิ์" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="เบอร์โทรศัพท์ผู้ขอจองสิทธิ์" required="required" />
+                                            <input type="text" name="tel_parent" class="form-control border-0 p-4" placeholder="เบอร์โทรศัพท์ผู้ขอจองสิทธิ์" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <select class="custom-select border-0 px-4" style="height: 47px;">
+                                            <select name="province" class="custom-select border-0 px-4" style="height: 47px;">
                                                 <option selected>ที่อยู่: จังหวัด</option>
                                                 <option value="เชียงใหม่">เชียงใหม่</option>
                                                 <option value="ลำพูน">ลำพูน</option>
@@ -38,27 +38,27 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="ที่อยู่: อำเภอ" required="required" />
+                                            <input type="text" name="district" class="form-control border-0 p-4" placeholder="ที่อยู่: อำเภอ" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="ที่อยู่: ตำบล" required="required" />
+                                            <input type="text" name="parish" class="form-control border-0 p-4" placeholder="ที่อยู่: ตำบล" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="ชื่อ-นามสกุลบิดา" required="required" />
+                                            <input type="text" name="name_father" class="form-control border-0 p-4" placeholder="ชื่อ-นามสกุลบิดา" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="สถานที่ทำงานของบิดา" required="required" />
+                                            <input type="text" name="work_father" class="form-control border-0 p-4" placeholder="สถานที่ทำงานของบิดา" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <select class="custom-select border-0 px-4" style="height: 47px;">
+                                            <select class="custom-select border-0 px-4" name="birth" style="height: 47px;">
                                                 <option selected>ข้อมูลการเกิด</option>
                                                 <option value="เกิดก่อนวันจองสอทธิ์">เกิดก่อนวันจองสอทธิ์</option>
                                                 <option value="เกิดหลังวันจองสอทธิ์">เกิดหลังวันจองสอทธิ์</option>
@@ -71,7 +71,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <select class="custom-select border-0 px-4" style="height: 47px;">
+                                            <select class="custom-select border-0 px-4" name="title" style="height: 47px;">
                                                 <option selected>คำนำหน้า</option>
                                                 <option value="เด็กชาย">เด็กชาย</option>
                                                 <option value="เด็กหญิง">เด็กหญิง</option>
@@ -80,30 +80,35 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="ชื่อ-นามสกุล" required="required" />
+                                            <input type="text" name="name_child" class="form-control border-0 p-4" placeholder="ชื่อ-นามสกุล" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="ชื่อเล่น" required="required" />
+                                            <input type="text" name="nickname" class="form-control border-0 p-4" placeholder="ชื่อเล่น" required="required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="วันเกิด" required=" required" />
+                                            <input type="text" name="birthday" class="form-control border-0 p-4" placeholder="วันเกิด" required=" required" />
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <input type="text" class="form-control border-0 p-4" placeholder="ระบุวัน เดือน ปี ที่จะนำบุตรมารับบริการ" required="required" />
+                                            <input type="text" name="date" class="form-control border-0 p-4" placeholder="ระบุวัน เดือน ปี ที่จะนำบุตรมารับบริการ" required="required" />
                                         </div>
                                     </div>
                                 </div>
 
                                 <div>
                                     <button class="btn btn-secondary btn-block border-0 py-3" type="submit">ลงทะเบียน</button>
+                                    <!-- <?php echo '<pre>';
+                                            print_r($_POST);
+                                            echo '</pre>';
+                                            ?> -->
                                 </div>
                             </form>
+                            <?php require_once('reg_childcare_db.php'); ?>
                         </div>
                     </div>
                 </div>
