@@ -9,7 +9,7 @@
             <div class="col-md-3 left_col">
                 <div class="left_col scroll-view">
                     <!-- sidebar menu -->
-                    <?php require_once 'sidebar.php'; ?><!--  -->
+                    <?php require_once 'sidebar.php'; ?>
                     <!-- /sidebar menu -->
                 </div>
             </div>
@@ -30,37 +30,29 @@
                                                     <thead>
                                                         <tr>
                                                             <th>#</th>
-                                                            <th>ชื่อผู้จองสิทธิ์</th>
-                                                            <th>เบอร์ติดต่อ</th>
-                                                            <th>เพศ</th>
-                                                            <th>ชื่อลูก</th>
-                                                            <th>ชื่อเล่น</th>
-                                                            <th>จังหวัด</th>
-                                                            <th>วันลงทะเบียน</th>
+                                                            <th>หัวข้อ</th>
                                                             <th>รายละเอียด</th>
+                                                            <th>รูปภาพ</th>
                                                             <th>การจัดการ</th>
+                                                            <th>ลบ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
                                                         <?php
                                                         require_once 'connection.php';
-                                                        $stmt = $conn->prepare("SELECT* FROM childcare");
+                                                        $stmt = $conn->prepare("SELECT* FROM blog");
                                                         $stmt->execute();
                                                         $result = $stmt->fetchAll();
                                                         $countrow = 1;
-                                                        foreach ($result as $t1) {
+                                                        foreach ($result as $t2) {
                                                         ?>
                                                             <tr>
                                                                 <td><?= $countrow ?></td>
-                                                                <td><?= $t1['name_parent']; ?></td>
-                                                                <td><?= $t1['tel_parent']; ?></td>
-                                                                <td><?= $t1['title']; ?></td>
-                                                                <td><?= $t1['name_child']; ?></td>
-                                                                <td><?= $t1['nickname']; ?></td>
-                                                                <td><?= $t1['province']; ?></td>
-                                                                <td><?= $t1['rec_date']; ?></td>
-                                                                <td><a href="data1.php?id=<?= $t1['id']; ?>" class="btn btn-success btn-sm">View</a></td>
-                                                                <td><a href="del.php?id=<?= $t1['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Confirm Data Deletion !!');">Del</a></td>
+                                                                <td><?= $t2['blog_name']; ?></td>
+                                                                <td><?= $t2['blog_details']; ?></td>
+                                                                <td><?= $t2['img_file']; ?></td>
+                                                                <td><a href="blog_view.php?id=<?= $t2['id']; ?>" class="btn btn-success btn-sm">View</a></td>
+                                                                <td><a href="del.php?id=<?= $t2['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Confirm Data Deletion !!');">Del</a></td>
                                                             </tr>
 
                                                         <?php $countrow++;

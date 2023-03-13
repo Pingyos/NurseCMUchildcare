@@ -14,7 +14,7 @@
                             <h1 class="text-white m-0">แบบฟอร์มการจองสิทธิ์</h1>
                         </div>
                         <div class="card-body rounded-bottom bg-primary p-12">
-                            <form method="POST" role="form">
+                            <form  method="POST" role="form">
                                 <h5>แบบฟอร์มสำหรับผู้ปกครอง</h5>
                                 <div class="row">
                                     <div class="col-6">
@@ -58,7 +58,7 @@
                                     </div>
                                     <div class="col-6">
                                         <div class="form-group">
-                                            <select class="custom-select border-0 px-4" name="birth" style="height: 47px;">
+                                            <select class="custom-select border-0 px-4" name="databirth" style="height: 47px;">
                                                 <option selected>ข้อมูลการเกิด</option>
                                                 <option value="เกิดก่อนวันจองสอทธิ์">เกิดก่อนวันจองสอทธิ์</option>
                                                 <option value="เกิดหลังวันจองสอทธิ์">เกิดหลังวันจองสอทธิ์</option>
@@ -102,14 +102,14 @@
 
                                 <div>
                                     <button class="btn btn-secondary btn-block border-0 py-3" type="submit">ลงทะเบียน</button>
-                                    <!-- <?php echo '<pre>';
-                                            print_r($_POST);
-                                            echo '</pre>';
-                                            ?> -->
+                                    <?php echo '<pre>';
+                                    print_r($_POST);
+                                    echo '</pre>';
+                                    ?>
                                 </div>
                             </form>
-                            <?php require_once('reg_childcare_db.php'); ?>
                         </div>
+                        <?php require_once 'reg_childcare_db.php'; ?>
                     </div>
                 </div>
             </div>
