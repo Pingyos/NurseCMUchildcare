@@ -3,7 +3,7 @@ if(isset($_GET['id'])){
 require_once 'connection.php';
 //ประกาศตัวแปรรับค่าจาก param method get
 $id = $_GET['id'];
-$stmt = $conn->prepare('DELETE FROM childcare WHERE id=:id');
+$stmt = $conn->prepare('DELETE FROM blog WHERE id=:id');
 $stmt->bindParam(':id', $id , PDO::PARAM_INT);
 $stmt->execute();
 
@@ -20,7 +20,7 @@ echo '
                   title: "Del Data Success",
                   type: "success"
               }, function() {
-                  window.location = "tables.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "add_blog.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 200);
         </script>';
@@ -31,7 +31,7 @@ echo '
                   title: "Del Data Error",
                   type: "error"
               }, function() {
-                  window.location = "tables.php"; //หน้าที่ต้องการให้กระโดดไป
+                  window.location = "add_blog.php"; //หน้าที่ต้องการให้กระโดดไป
               });
             }, 200);
         </script>';
