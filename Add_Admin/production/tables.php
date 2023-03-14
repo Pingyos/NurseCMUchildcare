@@ -38,7 +38,6 @@
                                                             <th>จังหวัด</th>
                                                             <th>วันลงทะเบียน</th>
                                                             <th>รายละเอียด</th>
-                                                            <th>การจัดการ</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -59,8 +58,7 @@
                                                                 <td><?= $t1['nickname']; ?></td>
                                                                 <td><?= $t1['province']; ?></td>
                                                                 <td><?= $t1['rec_date']; ?></td>
-                                                                <td><a href="data1.php?id=<?= $t1['id']; ?>" class="btn btn-success btn-sm">View</a></td>
-                                                                <td><a href="del.php?id=<?= $t1['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Confirm Data Deletion !!');">Del</a></td>
+                                                                <td><a href="data1.php?id=<?= $t1['id']; ?>" class="btn btn-success btn-sm">เปิดดู</a></td>
                                                             </tr>
 
                                                         <?php $countrow++;

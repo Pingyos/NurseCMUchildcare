@@ -33,64 +33,63 @@
                                                             }
                                                         } //isset
                                                         ?>
+
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['name_parent']; ?>" required />
+                                                                <h3>ลำดับ การจอง : <?= $row['id']; ?></h3>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['tel_parent']; ?>" required />
+                                                                <h3>วันที่/เดือน/ปี การจอง : <?= date("d/m/Y", strtotime($row['rec_date'])); ?></h3>
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['province']; ?>" required />
+                                                                <label for="name_parent">ชื่อผู้ขอจองสิทธิ์</label>
+                                                                <input type="text" id="name_parent" class="form-control" name="name_parent" value="<?= $row['name_parent']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['district']; ?>" required />
+                                                                <label for="tel_parent">เบอร์โทรศัพท์ผู้ขอจองสิทธิ์</label>
+                                                                <input type="text" id="tel_parent" class="form-control" name="tel_parent" value="<?= $row['tel_parent']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['parish']; ?>" required />
+                                                                <label for="province">ที่อยู่: จังหวัด</label>
+                                                                <input type="text" id="province" class="form-control" name="province" value="<?= $row['province']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['name_father']; ?>" required />
+                                                                <label for="district">ที่อยู่: อำเภอ</label>
+                                                                <input type="text" id="district" class="form-control" name="district" value="<?= $row['district']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['work_father']; ?>" required />
+                                                                <label for="parish">ที่อยู่: ตำบล</label>
+                                                                <input type="text" id="parish" class="form-control" name="parish" value="<?= $row['parish']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['title']; ?>" required />
+                                                                <label for="name_father">ชื่อ-นามสกุลบิดา</label>
+                                                                <input type="text" id="name_father" class="form-control" name="name_father" value="<?= $row['name_father']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['name_child']; ?>" required />
+                                                                <label for="work_father">สถานที่ทำงานของบิดา:</label>
+                                                                <input type="text" id="work_father" class="form-control" name="work_father" value="<?= $row['work_father']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['nickname']; ?>" required />
+                                                                <label for="databirth">ข้อมูลการเกิด</label>
+                                                                <input type="text" id="databirth" class="form-control" name="databirth" value="<?= $row['title']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['birthday']; ?>" required />
+                                                                <label for="title">คำนำหน้า</label>
+                                                                <input type="text" id="title" class="form-control" name="title" value="<?= $row['name_child']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="fullname">Full Name * :</label>
-                                                                <input type="text" id="fullname" class="form-control" name="fullname" value="<?= $row['date']; ?>" required />
+                                                                <label for="name_child">ชื่อ-นามสกุล</label>
+                                                                <input type="text" id="name_child" class="form-control" name="name_child" value="<?= $row['nickname']; ?>" readonly />
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="nickname">ชื่อเล่น</label>
+                                                                <input type="text" id="nickname" class="form-control" name="nickname" value="<?= $row['birthday']; ?>" readonly />
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="birthday">วันเกิด</label>
+                                                                <input type="text" id="birthday" class="form-control" name="birthday" value="<?= $row['date']; ?>" readonly />
                                                             </div>
 
-                                                        </div>
-                                                        <div class="ln_solid"></div>
-                                                        <div class="item form-group">
-                                                            <div class="col-md-6 col-sm-6 offset-md-6">
-                                                                <button class="btn btn-primary" type="button">Cancel</button>
-                                                                <button class="btn btn-primary" type="reset">Reset</button>
-                                                                <button type="submit" class="btn btn-success">Submit</button>
-                                                            </div>
                                                         </div>
                                                     </form>
 
