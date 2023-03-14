@@ -20,39 +20,51 @@
                                             <div class="x_panel">
                                                 <div class="x_content">
                                                     <form action="" method="post" enctype="multipart/form-data">
+                                                        <?php
+                                                        if (isset($_GET['id'])) {
+                                                            require_once 'connection.php';
+                                                            $stmt = $conn->prepare("SELECT* FROM room WHERE id=?");
+                                                            $stmt->execute([$_GET['id']]);
+                                                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                            if ($stmt->rowCount() < 1) {
+                                                                header('Location: index.php');
+                                                                exit();
+                                                            }
+                                                        } //isset
+                                                        ?>
                                                         <div class="row">
                                                             <div class="col-md-6 mb-3">
-                                                                <label for="blog_name">ชื่อเรื่อง ส่วนที่ 1 :</label>
-                                                                <input type="text" id="blog_name" class="form-control" name="blog_name" required />
+                                                                <label for="name_h">ชื่อห้องเลย :</label>
+                                                                <input type="text" id="name_h" class="form-control" name="name_h" value="<?= $row['name_h']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
-                                                                <label for="blog_name">รายละเอียด ส่วนที่ 1 :</label>
-                                                                <input type="text" id="blog_details" class="form-control" name="blog_details" required />
+                                                                <label for="name_d">รายละเอียดห้องเรียน :</label>
+                                                                <input type="text" id="name_d" class="form-control" name="name_d" value="<?= $row['name_d']; ?>" readonly />
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="age">อายุ :</label>
+                                                                <input type="text" id="age" class="form-control" name="age" value="<?= $row['age']; ?>" readonly />
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="num_sum">จำนวนนักเรียน :</label>
+                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" value="<?= $row['num_sum']; ?>" readonly />
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="time">เวลาเปิด/ปิด :</label>
+                                                                <input type="text" id="time" class="form-control" name="time" value="<?= $row['time']; ?>" readonly />
+                                                            </div>
+                                                            <div class="col-md-6 mb-3">
+                                                                <label for="buy_sum">ค่าเทอม :</label>
+                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" value="<?= $row['buy_sum']; ?>" readonly />
                                                             </div>
                                                             <div class="col-md-12 mb-3">
-                                                                <label for="blog_name">รูปภาพ ส่วนที่ 1 :</label>
+                                                                <label for="blog_name">รูปภาพ :</label>
                                                                 <input type="file" name="img_file" required class="form-control" accept="image/jpeg, image/png, image/jpg">
-                                                            </div>
-                                                            <div class="col-md-6 mb-3">
-                                                                <label for="blog_name_b2">ชื่อเรื่อง ส่วนที่ 2 :</label>
-                                                                <input type="text" id="blog_name_b2" class="form-control" name="blog_name_b2" required />
-                                                            </div>
-                                                            <div class="col-md-6 mb-3">
-                                                                <label for="detail_b2">รายละเอียด ส่วนที่ 2 :</label>
-                                                                <input type="text" id="detail_b2" class="form-control" name="detail_b2" required />
-                                                            </div>
-                                                            <div class="col-md-6 mb-3">
-                                                                <label for="blog_name_b3">ชื่อเรื่อง ส่วนที่ 3 :</label>
-                                                                <input type="text" id="blog_name_b3" class="form-control" name="blog_name_b3" required />
-                                                            </div>
-                                                            <div class="col-md-6 mb-3">
-                                                                <label for="detail_b3">รายละเอียด ส่วนที่ 3 :</label>
-                                                                <input type="text" id="detail_b3" class="form-control" name="detail_b3" required />
                                                             </div>
                                                         </div>
                                                         <div class="ln_solid"></div>
                                                         <div class="item form-group">
-                                                            <button type="submit" class="btn btn-success">โพสต์</button>
+                                                            <button type="submit" class="btn btn-success">แก้ไข</button>
                                                         </div>
                                                     </form>
                                                     <?php
@@ -107,7 +119,7 @@
                                                                         title: "อัพโหลดภาพสำเร็จ",
                                                                         type: "success"
                                                                     }, function() {
-                                                                        window.location = "blog_add.php"; //หน้าที่ต้องการให้กระโดดไป
+                                                                        window.location = "upload.php"; //หน้าที่ต้องการให้กระโดดไป
                                                                     });
                                                                     }, 1000);
                                                                 </script>';

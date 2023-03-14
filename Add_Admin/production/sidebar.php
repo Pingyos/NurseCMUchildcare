@@ -13,14 +13,15 @@
       <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-          <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-table"></i> ตาราง <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="tables.php">Tables</a></li>
+              <li><a href="tables.php">ตารางการจอง สิทธิ์</a></li>
             </ul>
           </li>
-          <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+          <li><a><i class="fa fa-edit"></i> อัพโหลด <span class="fa fa-chevron-down"></span></a>
             <ul class="nav child_menu">
-              <li><a href="add_blog.php">General Form</a></li>
+              <li><a href="add_blog.php">บล็อก</a></li>
+              <li><a href="room.php">ห้องเรียน</a></li>
             </ul>
           </li>
         </ul>
