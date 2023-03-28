@@ -55,7 +55,7 @@
                                                                     <td><img src="upload/room/<?= $t2['img_file']; ?>" width="70px"></td>
                                                                     <td><a href="room_view.php?id=<?= $t2['id']; ?>" class="btn btn-success btn-sm">เปิด</a>
                                                                     <td><a href="room_edit.php?id=<?= $t2['id']; ?>" class="btn btn-success btn-sm">แก้ไข</a>
-                                                                    <td><a href="del.php?id=<?= $t2['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Confirm Data Deletion !!');">ลบ</a></td>
+                                                                    <td><a href="delroom.php?id=<?= $t2['id']; ?>" class="btn btn-danger btn-sm" onclick="return confirm('Confirm Data Deletion !!');">ลบ</a></td>
                                                                 </tr>
 
                                                             <?php $countrow++;

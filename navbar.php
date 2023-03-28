@@ -14,7 +14,7 @@
                 <a href="about.php" class="nav-item nav-link">เกี่ยวกับเรา</a>
                 <a href="class.php" class="nav-item nav-link">ชั้นเรียน</a>
                 <a href="team.php" class="nav-item nav-link">คุณครู</a>
-                <a href="gallery.php" class="nav-item nav-link">รูปภาพกิจกรรม</a>
+                <!-- <a href="gallery.php" class="nav-item nav-link">รูปภาพกิจกรรม</a> -->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">บล็อก</a>
                     <div class="dropdown-menu rounded-0 m-0">

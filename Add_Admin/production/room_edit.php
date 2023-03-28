@@ -35,32 +35,33 @@
                                                         <div class="row">
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="name_h">ชื่อห้องเลย :</label>
-                                                                <input type="text" id="name_h" class="form-control" name="name_h" value="<?= $row['name_h']; ?>" readonly />
+                                                                <input type="text" id="name_h" class="form-control" name="name_h" value="<?= $row['name_h']; ?>"  />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="name_d">รายละเอียดห้องเรียน :</label>
-                                                                <input type="text" id="name_d" class="form-control" name="name_d" value="<?= $row['name_d']; ?>" readonly />
+                                                                <input type="text" id="name_d" class="form-control" name="name_d" value="<?= $row['name_d']; ?>"  />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="age">อายุ :</label>
-                                                                <input type="text" id="age" class="form-control" name="age" value="<?= $row['age']; ?>" readonly />
+                                                                <input type="text" id="age" class="form-control" name="age" value="<?= $row['age']; ?>"  />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="num_sum">จำนวนนักเรียน :</label>
-                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" value="<?= $row['num_sum']; ?>" readonly />
+                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" value="<?= $row['num_sum']; ?>"  />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="time">เวลาเปิด/ปิด :</label>
-                                                                <input type="text" id="time" class="form-control" name="time" value="<?= $row['time']; ?>" readonly />
+                                                                <input type="text" id="time" class="form-control" name="time" value="<?= $row['time']; ?>"  />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="buy_sum">ค่าเทอม :</label>
-                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" value="<?= $row['buy_sum']; ?>" readonly />
+                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" value="<?= $row['buy_sum']; ?>"  />
                                                             </div>
                                                             <div class="col-md-12 mb-3">
                                                                 <label for="blog_name">รูปภาพ :</label>
                                                                 <input type="file" name="img_file" required class="form-control" accept="image/jpeg, image/png, image/jpg">
                                                             </div>
+                                                            <img src="upload/room/<?= $row['img_file']; ?>" width="200px">
                                                         </div>
                                                         <div class="ln_solid"></div>
                                                         <div class="item form-group">
@@ -102,7 +103,7 @@
                                                                 $detail_b3 = $_POST['detail_b3'];
 
                                                                 //sql insert
-                                                                $stmt = $conn->prepare("INSERT INTO blog (blog_name,blog_details, blog_name_b2, blog_name_b3, detail_b2, detail_b3, img_file)
+                                                                $stmt = $conn->prepare("UPDATE blog SET (blog_name,blog_details, blog_name_b2, blog_name_b3, detail_b2, detail_b3, img_file)
                                                                 VALUES (:blog_name, :blog_details, :blog_name_b2, :blog_name_b3, :detail_b2, :detail_b3,'$newname')");
                                                                 $stmt->bindParam(':blog_name', $blog_name, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':blog_details', $blog_details, PDO::PARAM_STR);

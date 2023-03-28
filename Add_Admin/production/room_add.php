@@ -53,10 +53,10 @@
                                                         <div class="ln_solid"></div>
                                                         <div class="item form-group">
                                                             <button type="submit" class="btn btn-success">โพสต์</button>
-                                                            <?php echo '<pre>';
-                                                            print_r($_POST);
-                                                            echo '</pre>';
-                                                            ?>
+                                                            <!-- <?php echo '<pre>';
+                                                                    print_r($_POST);
+                                                                    echo '</pre>';
+                                                                    ?> -->
                                                         </div>
                                                     </form>
                                                     <?php
@@ -94,16 +94,17 @@
                                                                 $buy_sum = $_POST['buy_sum'];
 
                                                                 //sql insert
-                                                                $stmt = $conn->prepare("INSERT INTO room (name_h,name_d, age, num_sum, time, buy_sum)
-                                                                VALUES (:name_h, :name_d, :age, :num_sum, :time, :buy_sum,'$newname')");
+                                                                $stmt = $conn->prepare("INSERT INTO room (name_h,name_d, age, num_sum, time, buy_sum, img_file)
+                                                                 VALUES (:name_h, :name_d, :age, :num_sum, :time, :buy_sum, :img_file)");
                                                                 $stmt->bindParam(':name_h', $name_h, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':name_d', $name_d, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':age', $age, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':num_sum', $num_sum, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':time', $time, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':buy_sum', $buy_sum, PDO::PARAM_STR);
-                                                                $stmt->bindParam(':img_file', $img_file, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':img_file', $newname, PDO::PARAM_STR);
                                                                 $result = $stmt->execute();
+
                                                                 //เงื่อนไขตรวจสอบการเพิ่มข้อมูล
                                                                 if ($result) {
                                                                     echo '<script>
@@ -112,7 +113,7 @@
                                                                         title: "อัพโหลดภาพสำเร็จ",
                                                                         type: "success"
                                                                     }, function() {
-                                                                        window.location = "blog_add.php"; //หน้าที่ต้องการให้กระโดดไป
+                                                                        window.location = "room_add.php"; //หน้าที่ต้องการให้กระโดดไป
                                                                     });
                                                                     }, 1000);
                                                                 </script>';
@@ -123,7 +124,7 @@
                                                                         title: "เกิดข้อผิดพลาด",
                                                                         type: "error"
                                                                     }, function() {
-                                                                        window.location = "blog_add.php"; //หน้าที่ต้องการให้กระโดดไป
+                                                                        window.location = "room_add.php"; //หน้าที่ต้องการให้กระโดดไป
                                                                     });
                                                                     }, 1000);
                                                                 </script>';
@@ -137,7 +138,7 @@
                                                                     title: "คุณอัพโหลดไฟล์ไม่ถูกต้อง",
                                                                     type: "error"
                                                                 }, function() {
-                                                                    window.location = "blog_add.php"; //หน้าที่ต้องการให้กระโดดไป
+                                                                    window.location = "room_add.php"; //หน้าที่ต้องการให้กระโดดไป
                                                                 });
                                                                 }, 1000);
                                                             </script>';
