@@ -102,10 +102,10 @@
 
                                 <div>
                                     <button class="btn btn-secondary btn-block border-0 py-3" type="submit">ลงทะเบียน</button>
-                                    <?php echo '<pre>';
+                                    <!-- <?php echo '<pre>';
                                     print_r($_POST);
                                     echo '</pre>';
-                                    ?>
+                                    ?> -->
                                 </div>
                             </form>
                         </div>

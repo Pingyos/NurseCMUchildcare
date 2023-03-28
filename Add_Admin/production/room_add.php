@@ -22,28 +22,28 @@
                                                     <form action="" method="post" enctype="multipart/form-data">
                                                         <div class="row">
                                                             <div class="col-md-6 mb-3">
-                                                                <label for="name_h">ชื่อห้องเลย :</label>
-                                                                <input type="text" id="name_h" class="form-control" name="name_h"/>
+                                                                <label for="name_h">ชื่อห้องเรียน :</label>
+                                                                <input type="text" id="name_h" class="form-control" name="name_h" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="name_d">รายละเอียดห้องเรียน :</label>
-                                                                <input type="text" id="name_d" class="form-control" name="name_d"/>
+                                                                <input type="text" id="name_d" class="form-control" name="name_d" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="age">อายุ :</label>
-                                                                <input type="text" id="age" class="form-control" name="age"/>
+                                                                <input type="text" id="age" class="form-control" name="age" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="num_sum">จำนวนนักเรียน :</label>
-                                                                <input type="text" id="num_sum" class="form-control" name="num_sum"/>
+                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="time">เวลาเปิด/ปิด :</label>
-                                                                <input type="text" id="time" class="form-control" name="time"/>
+                                                                <input type="text" id="time" class="form-control" name="time" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="buy_sum">ค่าเทอม :</label>
-                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum"/>
+                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" />
                                                             </div>
                                                             <div class="col-md-12 mb-3">
                                                                 <label for="blog_name">รูปภาพ :</label>
@@ -53,6 +53,10 @@
                                                         <div class="ln_solid"></div>
                                                         <div class="item form-group">
                                                             <button type="submit" class="btn btn-success">โพสต์</button>
+                                                            <?php echo '<pre>';
+                                                            print_r($_POST);
+                                                            echo '</pre>';
+                                                            ?>
                                                         </div>
                                                     </form>
                                                     <?php
@@ -98,6 +102,7 @@
                                                                 $stmt->bindParam(':num_sum', $num_sum, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':time', $time, PDO::PARAM_STR);
                                                                 $stmt->bindParam(':buy_sum', $buy_sum, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':img_file', $img_file, PDO::PARAM_STR);
                                                                 $result = $stmt->execute();
                                                                 //เงื่อนไขตรวจสอบการเพิ่มข้อมูล
                                                                 if ($result) {

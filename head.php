@@ -1,6 +1,6 @@
 <head>
     <meta charset="utf-8">
-    <title>KidKinder - Kindergarten Website Template</title>
+    <title></title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="keywords" content="ศูนย์เด็กเล็ก, คณะพยาบาลศาสตร์, มหาวิทยาลัยเชียงใหม่, วัยหัดเดิน, วัยก่อนเรียน, nursery, executive function, พัฒนาการ, สุขภาพ">
     <meta name="desscription" content="เว็บไซต์ของหน่วยสาธิตการสร้างเสริมสุขภาพเด็กเล็กคณะพยาบาลศาสตร์ มหาวิทยาลัยเชียงใหม่ จัดบริการดูแลเด็กเล็กที่มุ่งเน้นให้เด็กได้รับการสร้างเสริมสุขภาพ ให้มีการเจริญเติบโตที่เหมาะสม และมีพัฒนาการสูงสุด ตามศักยภาพของแต่ละคน">
