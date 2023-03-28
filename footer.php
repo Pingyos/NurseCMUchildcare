@@ -11,7 +11,7 @@
               <p>หน่วยสาธิตการสร้างเสริมสุขภาพเด็กเล็ก
                   คณะพยาบาลศาสตร์ มหาวิทยาลัยเชียงใหม่
                   110 ถ.อินวโรรส ต.ศรีภูมิ อ.เมือง จ.เชียงใหม่ 50200</p>
-              <a href="Add_Admin/production/dashboard.php">
+              <a href="Add_Admin/production">
                   <span class="text-white">Backend</span>
               </a>
           </div>

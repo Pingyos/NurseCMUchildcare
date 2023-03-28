@@ -41,8 +41,8 @@
                             <br />
 
                             <div>
-                                <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                                <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 4 template. Privacy and Terms</p>
+                                <h1></i>NurseCMUchildcare</h1>
+                                <p>เว็บไซต์ของหน่วยสาธิตการสร้างเสริมสุขภาพเด็กเล็กคณะพยาบาลศาสตร์ มหาวิทยาลัยเชียงใหม่</p>
                             </div>
                         </div>
                     </form>
