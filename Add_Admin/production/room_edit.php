@@ -1,5 +1,13 @@
 <!DOCTYPE html>
-<?php require_once 'head.php'; ?>
+<?php
+session_start();
+require_once 'connection.php';
+if (!isset($_SESSION['admin_login'])) {
+    $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
+    header('location: index.php');
+}
+require_once 'head.php';
+require_once 'topbar.php'; ?>
 
 <body class="nav-md">
     <div class="container body">
@@ -35,27 +43,27 @@
                                                         <div class="row">
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="name_h">ชื่อห้องเลย :</label>
-                                                                <input type="text" id="name_h" class="form-control" name="name_h" value="<?= $row['name_h']; ?>"  />
+                                                                <input type="text" id="name_h" class="form-control" name="name_h" value="<?= $row['name_h']; ?>" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="name_d">รายละเอียดห้องเรียน :</label>
-                                                                <input type="text" id="name_d" class="form-control" name="name_d" value="<?= $row['name_d']; ?>"  />
+                                                                <input type="text" id="name_d" class="form-control" name="name_d" value="<?= $row['name_d']; ?>" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="age">อายุ :</label>
-                                                                <input type="text" id="age" class="form-control" name="age" value="<?= $row['age']; ?>"  />
+                                                                <input type="text" id="age" class="form-control" name="age" value="<?= $row['age']; ?>" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="num_sum">จำนวนนักเรียน :</label>
-                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" value="<?= $row['num_sum']; ?>"  />
+                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" value="<?= $row['num_sum']; ?>" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="time">เวลาเปิด/ปิด :</label>
-                                                                <input type="text" id="time" class="form-control" name="time" value="<?= $row['time']; ?>"  />
+                                                                <input type="text" id="time" class="form-control" name="time" value="<?= $row['time']; ?>" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="buy_sum">ค่าเทอม :</label>
-                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" value="<?= $row['buy_sum']; ?>"  />
+                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" value="<?= $row['buy_sum']; ?>" />
                                                             </div>
                                                             <div class="col-md-12 mb-3">
                                                                 <label for="blog_name">รูปภาพ :</label>

@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<?php require_once 'head.php'; ?>
+<?php
+session_start();
+require_once 'connection.php';
+if (!isset($_SESSION['admin_login'])) {
+    $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
+    header('location: index.php');
+}
+require_once 'head.php';
+require_once 'topbar.php'; ?>
 
 <body class="nav-md">
     <div class="container body">
