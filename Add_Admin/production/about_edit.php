@@ -28,56 +28,47 @@ require_once 'topbar.php'; ?>
                                             <div class="x_panel">
                                                 <div class="x_content">
                                                     <form action="" method="post" enctype="multipart/form-data">
-                                                        <?php
-                                                        if (isset($_GET['id'])) {
-                                                            require_once 'connection.php';
-                                                            $stmt = $conn->prepare("SELECT* FROM room WHERE id=?");
-                                                            $stmt->execute([$_GET['id']]);
-                                                            $row = $stmt->fetch(PDO::FETCH_ASSOC);
-                                                            if ($stmt->rowCount() < 1) {
-                                                                header('Location: index.php');
-                                                                exit();
-                                                            }
-                                                        } //isset
-                                                        ?>
                                                         <div class="row">
                                                             <div class="col-md-6 mb-3">
-                                                                <label for="name_h">ชื่อห้องเลย :</label>
-                                                                <input type="text" id="name_h" class="form-control" name="name_h" value="<?= $row['name_h']; ?>" />
+                                                                <label for="name_h">ชื่อห้องเรียน :</label>
+                                                                <input type="text" id="name_h" class="form-control" name="name_h" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="name_d">รายละเอียดห้องเรียน :</label>
-                                                                <input type="text" id="name_d" class="form-control" name="name_d" value="<?= $row['name_d']; ?>" />
+                                                                <input type="text" id="name_d" class="form-control" name="name_d" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="age">อายุ :</label>
-                                                                <input type="text" id="age" class="form-control" name="age" value="<?= $row['age']; ?>" />
+                                                                <input type="text" id="age" class="form-control" name="age" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="num_sum">จำนวนนักเรียน :</label>
-                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" value="<?= $row['num_sum']; ?>" />
+                                                                <input type="text" id="num_sum" class="form-control" name="num_sum" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="time">เวลาเปิด/ปิด :</label>
-                                                                <input type="text" id="time" class="form-control" name="time" value="<?= $row['time']; ?>" />
+                                                                <input type="text" id="time" class="form-control" name="time" />
                                                             </div>
                                                             <div class="col-md-6 mb-3">
                                                                 <label for="buy_sum">ค่าเทอม :</label>
-                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" value="<?= $row['buy_sum']; ?>" />
+                                                                <input type="text" id="buy_sum" class="form-control" name="buy_sum" />
                                                             </div>
                                                             <div class="col-md-12 mb-3">
                                                                 <label for="blog_name">รูปภาพ :</label>
                                                                 <input type="file" name="img_file" required class="form-control" accept="image/jpeg, image/png, image/jpg">
                                                             </div>
-                                                            <img src="upload/room/<?= $row['img_file']; ?>" width="200px">
                                                         </div>
                                                         <div class="ln_solid"></div>
                                                         <div class="item form-group">
-                                                            <button type="submit" class="btn btn-success">แก้ไข</button>
+                                                            <button type="submit" class="btn btn-success">โพสต์</button>
+                                                            <!-- <?php echo '<pre>';
+                                                                    print_r($_POST);
+                                                                    echo '</pre>';
+                                                                    ?> -->
                                                         </div>
                                                     </form>
                                                     <?php
-                                                    if (isset($_POST['blog_name'])) {
+                                                    if (isset($_POST['name_h'])) {
                                                         require_once 'connection.php';
                                                         //สร้างตัวแปรวันที่เพื่อเอาไปตั้งชื่อไฟล์ใหม่
                                                         $date1 = date("Ymd_His");
@@ -95,7 +86,7 @@ require_once 'topbar.php'; ?>
                                                             if ($typefile == '.jpg' || $typefile  == '.jpeg' || $typefile  == '.png') {
 
                                                                 //โฟลเดอร์ที่เก็บไฟล์
-                                                                $path = "upload/";
+                                                                $path = "upload/room/";
                                                                 //ตั้งชื่อไฟล์ใหม่เป็น สุ่มตัวเลข+วันที่
                                                                 $newname = $numrand . $date1 . $typefile;
                                                                 $path_copy = $path . $newname;
@@ -103,23 +94,25 @@ require_once 'topbar.php'; ?>
                                                                 move_uploaded_file($_FILES['img_file']['tmp_name'], $path_copy);
 
                                                                 //ประกาศตัวแปรรับค่าจากฟอร์ม
-                                                                $blog_name = $_POST['blog_name'];
-                                                                $blog_details = $_POST['blog_details'];
-                                                                $blog_name_b2 = $_POST['blog_name_b2'];
-                                                                $detail_b2 = $_POST['detail_b2'];
-                                                                $blog_name_b3 = $_POST['blog_name_b3'];
-                                                                $detail_b3 = $_POST['detail_b3'];
+                                                                $name_h = $_POST['name_h'];
+                                                                $name_d = $_POST['name_d'];
+                                                                $age = $_POST['age'];
+                                                                $num_sum = $_POST['num_sum'];
+                                                                $time = $_POST['time'];
+                                                                $buy_sum = $_POST['buy_sum'];
 
                                                                 //sql insert
-                                                                $sql = "UPDATE blog SET blog_name = :blog_name, blog_details = :blog_details, blog_name_b2 = :blog_name_b2, blog_name_b3 = :blog_name_b3, detail_b2 = :detail_b2, detail_b3 = :detail_b3, img_file = '$newname' WHERE id = :id";
-                                                                $stmt->bindParam(':blog_name', $blog_name, PDO::PARAM_STR);
-                                                                $stmt->bindParam(':blog_details', $blog_details, PDO::PARAM_STR);
-                                                                $stmt->bindParam(':blog_name_b2', $blog_name_b2, PDO::PARAM_STR);
-                                                                $stmt->bindParam(':detail_b2', $detail_b2, PDO::PARAM_STR);
-                                                                $stmt->bindParam(':blog_name_b3', $blog_name_b3, PDO::PARAM_STR);
-                                                                $stmt->bindParam(':detail_b3', $detail_b3, PDO::PARAM_STR);
-                                                                $stmt->bindParam(':blog_id', $blog_id, PDO::PARAM_INT);
+                                                                $stmt = $conn->prepare("INSERT INTO room (name_h,name_d, age, num_sum, time, buy_sum, img_file)
+                                                                 VALUES (:name_h, :name_d, :age, :num_sum, :time, :buy_sum, :img_file)");
+                                                                $stmt->bindParam(':name_h', $name_h, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':name_d', $name_d, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':age', $age, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':num_sum', $num_sum, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':time', $time, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':buy_sum', $buy_sum, PDO::PARAM_STR);
+                                                                $stmt->bindParam(':img_file', $newname, PDO::PARAM_STR);
                                                                 $result = $stmt->execute();
+
                                                                 //เงื่อนไขตรวจสอบการเพิ่มข้อมูล
                                                                 if ($result) {
                                                                     echo '<script>
@@ -128,7 +121,7 @@ require_once 'topbar.php'; ?>
                                                                         title: "อัพโหลดภาพสำเร็จ",
                                                                         type: "success"
                                                                     }, function() {
-                                                                        window.location = "upload.php"; //หน้าที่ต้องการให้กระโดดไป
+                                                                        window.location = "room_add.php"; //หน้าที่ต้องการให้กระโดดไป
                                                                     });
                                                                     }, 1000);
                                                                 </script>';
@@ -139,7 +132,7 @@ require_once 'topbar.php'; ?>
                                                                         title: "เกิดข้อผิดพลาด",
                                                                         type: "error"
                                                                     }, function() {
-                                                                        window.location = "blog_add.php"; //หน้าที่ต้องการให้กระโดดไป
+                                                                        window.location = "room_add.php"; //หน้าที่ต้องการให้กระโดดไป
                                                                     });
                                                                     }, 1000);
                                                                 </script>';
@@ -153,7 +146,7 @@ require_once 'topbar.php'; ?>
                                                                     title: "คุณอัพโหลดไฟล์ไม่ถูกต้อง",
                                                                     type: "error"
                                                                 }, function() {
-                                                                    window.location = "blog_add.php"; //หน้าที่ต้องการให้กระโดดไป
+                                                                    window.location = "room_add.php"; //หน้าที่ต้องการให้กระโดดไป
                                                                 });
                                                                 }, 1000);
                                                             </script>';

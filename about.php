@@ -10,31 +10,39 @@
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5">
-                    <img class="img-fluid rounded mb-5 mb-lg-0" src="img/about-1.jpg" alt="">
-                </div>
-                <div class="col-lg-7">
-                    <p class="section-title pr-5"><span class="pr-2">เกี่ยวกับเรา</span></p>
-                    <h1 class="mb-4">NurseCMU-Childcare</h1>
-                    <p>หน่วยสาธิตการสร้างเสริมสุขภาพเด็กเล็ก คณะพยาบาลศาสตร์ มหาวิทยาลัยเชียงใหม่ เชื่อว่า เด็กจะเติบโตอย่างมีคุณภาพได้ จะต้องได้รับการเลี้ยงดูให้มีสุขภาพสมบูรณ์และมีการเจริญเติบโต พัฒนาการตามวัย ทั้งทางร่ายกาย จิตใจ อารมณ์ และสังคม ด้วยความรัก ความอบอุ่น ทั้งจากครอบครัวและผู้ดูแลเด็ก การจัดบริการดูแลเด็กในหน่วยสาธิตการสร้างเสริมสุขภาพเด็กเล็กจึงมุ่งเน้นให้เด็กได้รับการสร้างเสริมสุขภาพ ให้มีการเจริญเติบโตที่เหมาะสม และมีพัฒนาการสูงสุด ตามศักยภาพของแต่ละคน โดยให้บริการดูแลเด็กร่วมกับการศึกษาวิจัยด้านสุขภาพเด็ก ทั้งนี้ต้องจัดให้มีบรรยากาศการบริการที่ดี มีความร่วมมือในการทำงานระหว่างบุคลากรเป็นอย่างดี โดยปรับปรุงคุณภาพการบริการอย่างต่อเนื่อง ให้หน่วยสาธิตการสร้างเสริมสุขภาพเด็กเล็กเป็นแหล่งรวมวิชาการ การฝึกทักษะด้านการส่งเสริมพัฒนาการ และมีความเป็นเลิศทางด้านการสร้างเสริมสุขภาพเด็กวัยทารกและวัยหัดเดิน</p>
-                    <div class="row pt-2 pb-4">
-                        <div class="col-6 col-md-4">
-                            <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
-                        </div>
-                        <div class="col-6 col-md-8">
-                            <ul class="list-inline m-0">
-                                <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary
-                                        mr-3"></i>ส่งเสริมให้เด็กแต่ละคนมีการเจริญเติบโตและพัฒนาการอย่างเหมาะสมตามศักยภาพของแต่ละคน ทั้งด้านร่างกาย จิตใจ อารมณ์สังคม และจิตวิญญาณ</li>
-                                <li class="py-2 border-bottom"><i class="fa
-                                        fa-check text-primary mr-3"></i>ส่งเสริมการดูแลเด็กวัยทารกและหัดเดินอย่างมีคุณภาพภายใต้ความรู้ที่ได้จากการศึกษาและวิจัย</li>
-                                <li class="py-2 border-bottom"><i class="fa
-                                        fa-check text-primary mr-3"></i>เป็นแหล่งในการฝึกปฏิบัติการสร้างเสริมสุขภาพเด็กวัยทารกและวัยหัดเดินสำหรับนักศึกษาพยาบาล</li>
-                            </ul>
+            <?php
+            require_once 'connection.php';
+            $stmt = $conn->prepare("SELECT* FROM about");
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            foreach ($result as $t1) {
+            ?>
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <img class="img-fluid rounded mb-5 mb-lg-0" src="img/about-1.jpg" alt="">
+                    </div>
+                    <div class="col-lg-7">
+                        <p class="section-title pr-5"><span class="pr-2">เกี่ยวกับเรา</span></p>
+                        <h1 class="mb-4"><?= $t1['name']; ?></h1>
+                        <p><?= $t1['details']; ?></p>
+                        <div class="row pt-2 pb-4">
+                            <div class="col-6 col-md-4">
+                                <img class="img-fluid rounded" src="img/about-2.jpg" alt="">
+                            </div>
+                            <div class="col-6 col-md-8">
+                                <ul class="list-inline m-0">
+                                    <li class="py-2 border-top border-bottom"><i class="fa fa-check text-primary
+                                        mr-3"></i><?= $t1['details1']; ?></li>
+                                    <li class="py-2 border-bottom"><i class="fa
+                                        fa-check text-primary mr-3"></i><?= $t1['details2']; ?></li>
+                                    <li class="py-2 border-bottom"><i class="fa
+                                        fa-check text-primary mr-3"></i><?= $t1['details3']; ?></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
         </div>
     </div>
     <!-- About End -->
