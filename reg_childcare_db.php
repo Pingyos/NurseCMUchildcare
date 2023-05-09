@@ -47,28 +47,32 @@ if (
   $conn = null; //close connect db
   //เงื่อนไขตรวจสอบการเพิ่มข้อมูล
   if ($result) {
-    echo '<script>
-        setTimeout(function() {
-            swal({
-                title: "Add data Success",
-                type: "success"
-            }, function() {
-                window.location = "index.php";
-            });
-        }, 200);
-    </script>';
-  } else {
-    echo '<script>
-         setTimeout(function() {
-          swal({
-              title: "Add date Error",
-              type: "error"
-          }, function() {
-              window.location = "index.php"; //หน้าที่ต้องการให้กระโดดไป
-          });
-        }, 200);
-    </script>';
-  }
-  $conn = null; //close connect db
+    echo '
+        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">';
+        echo '<script>
+            setTimeout(function() {
+                swal({
+                    title: "บันทึกข้อมูลสำเร็จ",
+                    type: "success"
+                }, function() {
+                    window.location = "reg_childcare.php";
+                });
+            }, 2000);
+        </script>';
+    } else {
+        echo '<script>
+             setTimeout(function() {
+              swal({
+                  title: "บันทึกข้อมูลไม่สำเร็จ",
+                  type: "error"
+              }, function() {
+                  window.location = "index.php";
+              });
+            }, 2000);
+        </script>';
+    }
+    $conn = null; //close connect db
 
 } //isset
